@@ -23,8 +23,12 @@ from google.adk.models import Gemini
 from google.adk.tools import google_search
 from google.genai import types
 
+from app.app_utils.observability import StructuredLoggingPlugin, setup_logging
+
+setup_logging()
 
 MODEL = "gemini-3.8-flash"
+SYNTHESIZER_MODEL = "gemini-3.1-pro-preview"
 
 
 def get_stock_history(
@@ -102,7 +106,7 @@ parallel_research_agent = ParallelAgent(
 report_synthesizer_agent = Agent(
     name="report_synthesizer_agent",
     model=Gemini(
-        model=MODEL,
+        model=SYNTHESIZER_MODEL,
         retry_options=types.HttpRetryOptions(attempts=3),
     ),
     description="Combines results from web_research_agent and stock_history_agent into a comprehensive stock research report.",
@@ -155,4 +159,5 @@ root_agent = Agent(
 app = App(
     root_agent=root_agent,
     name="app",
+    plugins=[StructuredLoggingPlugin()],
 )
