@@ -1,0 +1,76 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "stock_analysis_aapl",
+      "prompt": {
+        "role": "user",
+        "parts": [{"text": "Analyze whether Apple (AAPL) is a good investment."}]
+      },
+      "reference": {
+        "response": {
+          "role": "model",
+          "parts": [
+            {
+              "text": "A comprehensive stock research report for Apple (AAPL) synthesizing web research and historical stock price data, structured with: 1. Executive Summary, 2. Recent News & Market Sentiment, 3. Historical Price & Volume Performance, 4. Key Opportunities & Risks, and 5. Investment Outlook & Conclusion."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "eval_case_id": "stock_analysis_googl",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Can you provide a financial and stock performance analysis for Alphabet (GOOGL)?"
+          }
+        ]
+      },
+      "reference": {
+        "response": {
+          "role": "model",
+          "parts": [
+            {
+              "text": "A comprehensive stock research report for Alphabet (GOOGL) synthesizing recent news, market sentiment, and historical price/volume data, structured with: 1. Executive Summary, 2. Recent News & Market Sentiment, 3. Historical Price & Volume Performance, 4. Key Opportunities & Risks, and 5. Investment Outlook & Conclusion."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "eval_case_id": "off_topic_weather",
+      "prompt": {
+        "role": "user",
+        "parts": [{"text": "What's the weather like in San Francisco?"}]
+      },
+      "reference": {
+        "response": {
+          "role": "model",
+          "parts": [
+            {
+              "text": "The agent politely declines the off-topic request and asks the user to stay on topic by providing a company or stock ticker they would like analyzed."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "eval_case_id": "off_topic_capital_lookup",
+      "prompt": {
+        "role": "user",
+        "parts": [{"text": "What is the capital of France?"}]
+      },
+      "reference": {
+        "response": {
+          "role": "model",
+          "parts": [
+            {
+              "text": "The agent politely declines to answer the off-topic question and asks the user to stay on topic and provide a company or stock ticker for financial analysis."
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
